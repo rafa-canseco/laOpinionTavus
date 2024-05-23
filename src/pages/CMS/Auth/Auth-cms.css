@@ -1,79 +1,88 @@
-.container-ext{
+.container-ext-cms{
     width: 100%;
     height: 90vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
-.container-titulo{
+.container-titulo-cms{
     width: 100%;
-    height: 40%;
+    height: 50%;
+    padding-top: 20px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
     flex-direction: column;
-    gap: 15px;
 }
-.container-titulo h1{
+.container-titulo-cms-logo{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+.LogoAuth-CMS{
+    width: 100%;
+}
+.container-titulo-cms-bienvenida{
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+
+}
+.container-titulo-cms h1{
     font-size: 35px;
 }
-
-.container-login{
+.container-login-cms{
     width: 100%;
-    height: 60%;
+    height: 50%;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
 }
-
-.container-int-login{
-    width: 40%;
+.container-int-login-cms{
+    width: 80%;
     height: auto;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
 }
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-
+.form-cms {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;  
 }
-.label-container {
+.label-container-cms {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
-.label-container p{
+.label-container-cms p{
     font-size: 25px;
 }
-
-input{
+.label-container-cms input{
     width: 100%;
     height: 40px;
     border: 1px solid rgb(1, 1, 1);
 }
-
-.container-int-login button{
+.container-int-login-cms button{
     margin-top: 15px;
     height: 45px;
     background-color: rgb(36, 179, 79);
 }
-.container-int-login button p{
+.container-int-login-cms button p{
     font-size: 30px;
     color: #000000;
 }
-
-.registrarse{
+.registrarse-cms{
     margin-top: 20px;
     font-size: 25px;
     cursor: pointer;
-}
-
-.LogoAuth{
-    width: 600px;
 }

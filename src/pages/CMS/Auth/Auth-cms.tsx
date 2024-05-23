@@ -1,9 +1,9 @@
-import './Auth.css';
-import { supabase } from '../../supabase/supabase.ts';
+import './Auth-cms.css';
+import { supabase } from '../../../supabase/supabase.ts';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const AuthPage = () => {
+const AuthPageCMS = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -16,7 +16,7 @@ const AuthPage = () => {
       setError(error.message);
     } else {
       setError(null);
-      navigate('/home');
+      navigate('/home-cms');
     }
   };
   const handleRegister = () => {
@@ -24,30 +24,35 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="container-ext">
-      <div className="container-titulo">
-        <img src="src/assets/img/Auth/la-opinion-logo.png" alt="Logo la opinion" className='LogoAuth'/>
-        <h1>News Room</h1>
+    <div className="container-ext-cms">
+      <div className="container-titulo-cms">
+        <div className='container-titulo-cms-logo'>
+          <img src="src/assets/img/Auth/la-opinion-logo.png" alt="Logo la opinion" className='LogoAuth-CMS'/>
+        </div>
+        <div className='container-titulo-cms-bienvenida'>
+          <h1>¡Bienvenidos!</h1>
+          <h1>CMS</h1>
+        </div>
       </div>
-      <div className="container-login">
-        <div className="container-int-login">
-          <form className="form" onSubmit={handleLogin}>
-            <label className="label-container">
+      <div className="container-login-cms">
+        <div className="container-int-login-cms">
+          <form className="form-cms" onSubmit={handleLogin}>
+            <label className="label-container-cms">
               <p>Email:</p>
               <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
             </label>
-            <label className="label-container">
+            <label className="label-container-cms">
               <p>Contraseña:</p>
               <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
             </label>
             <button type="submit"><p>Login</p></button>{error && <p className="error-message">{error}</p>}
           </form>
         </div>
-        <p className='registrarse' onClick={handleRegister} style={{ cursor: 'pointer' }}>Registrarse</p>
+        <p className='registrarse-cms' onClick={handleRegister} style={{ cursor: 'pointer' }}>Registrarse</p>
       </div>
     </div>
   );
 };
 
-export default AuthPage;
+export default AuthPageCMS;
 

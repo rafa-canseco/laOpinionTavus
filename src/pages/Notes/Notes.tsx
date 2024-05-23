@@ -16,7 +16,7 @@ El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muert
       text: selectedNote
     };
     try {
-      const response = await axios.post("http://servidorscarlett.com/generate_resume", requestData);
+      const response = await axios.post("https://servidorscarlett.com/generate_resume", requestData);
       if (response.status === 200) {
         setSummary(response.data.response);
       } else {
@@ -94,7 +94,7 @@ El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muert
       {videoUrls.streamUrl && (
         <div>
           <video controls src={videoUrls.streamUrl} className="w-full max-w-lg mt-4"></video>
-          <a href={videoUrls.downloadUrl} className="btn btn-primary mt-2" download>Descargar Video</a>
+          <a href={videoUrls.downloadUrl} className="btn btn-primary mt-2" download>Descargar Videos</a>
         </div>
       )}
     </div>
