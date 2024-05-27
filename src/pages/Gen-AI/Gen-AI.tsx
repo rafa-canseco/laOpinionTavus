@@ -4,8 +4,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const GENAI = () => {
-  const [selectedNote] =
-    useState(`El Servicio Meteorológico Nacional (NWS, en inglés) informó que las tormentas fuertes y las amenazas de lluvias excesivas se mantienen hoy desde el sur de las Planicies, en el centro del país, hasta el sudeste, y continuarán su curso al este hasta el viernes.
+  const [selectedNote] = useState(`El Servicio Meteorológico Nacional (NWS, en inglés) informó que las tormentas fuertes y las amenazas de lluvias excesivas se mantienen hoy desde el sur de las Planicies, en el centro del país, hasta el sudeste, y continuarán su curso al este hasta el viernes.
 El jueves un frente que se extiende desde la costa del Atlántico hacia el oeste al valle del río Ohio y hacia el sudoeste a las altas Planicies, se trasladará hacia la costa atlántica el viernes y permanecerá sobre Florida el sábado”, indicó el NWS.
 El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muerte de un hombre de 22 años de edad que estaba adentro de un vehículo aplastado por la caída de un árbol.`);
   const [summary, setSummary] = useState("");
@@ -64,18 +63,8 @@ El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muert
     setIsLoading(false);
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter") {
-      handleGenerateSummary();
-    }
-  };
-
-  /*
-    const [isFocused, setIsFocused] = useState(false);
-    */
-
   return (
-    <div className="container-ext" onKeyDown={handleKeyDown}>
+    <div className="container-ext">
       <Navbar />
       <div className="container-main">
         <div className="container-int-Encabezado">
@@ -148,41 +137,3 @@ El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muert
 };
 
 export default GENAI;
-
-/*
-<div className="contatiner-ext">
-        <Navbar/>
-        <div className="container-int-titulo">
-            <h1>Generador AI</h1>
-        </div>
-        <div className="container-main">
-            <div className="container-int-Encabezado">
-                <div className="container-titulo-G">
-                    <h2><b>Encabezado</b></h2>
-                </div>
-                <div className='container-encabezado-contenido'>
-                    <textarea className="text-area" value={text} onFocus={handleFocus} onChange={handleChange} onBlur={() => setIsFocused(false)}/>
-                </div>
-                <div className="container-boton">
-                    <button><p>GENERAR RESUMEN</p></button>
-                </div>
-                
-            </div>
-            <div className="container-int-Editor">
-                <div className="container-titulo-G">
-                    <h2><b>EDITOR DE TEXTO</b></h2>
-                </div>
-                <div className="container-editor-contenido">
-                    <textarea className="text-area" value={text2} onFocus={handleFocus2} onChange={handleChange2} onBlur={() => setIsFocused(false)}/>
-                </div>
-                <div className="container-boton">
-                    <button><p>GENERAR VIDEO</p></button>
-                </div>
-                <div className="container-video-descargable"></div>
-                <div className="container-boton-DonwloadVideo">
-                    <button><p>DESCARGAR VIDEO</p></button>
-                </div>
-                
-            </div>
-        </div>
-    </div> */
