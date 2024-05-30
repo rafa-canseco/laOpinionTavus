@@ -3,16 +3,23 @@ nav{
     height: 5%;
     background-color: rgb(102, 37, 37);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 35px;
     position: sticky;
     top: 0;
+    gap: 20px;
 }
 nav p{
     color: #fff;
     font-size: 25px;
 }
 .ai-pos{
-    margin-right: 800px;
+    /*margin-right: 800px;*/
+}
+.vi-pos-nav{
+    /*margin-right: 100px;*/
+}
+.logout-nav{
+    margin-left: 500px;
 }

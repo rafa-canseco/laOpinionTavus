@@ -5,6 +5,7 @@ import Notes from './pages/Notes/Notes';
 import AuthPage from './pages/Auth/Auth';
 import Home from './pages/Home/Home';
 import GENAI from './pages/Gen-AI/Gen-AI';
+import Videogen from './pages/Video-gen/Video-gen';
 import RegistrarPage from './pages/Registrar/Registrar';
 import PrivateRoute from './components/PrivateRoute/privateroute';
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/notes" element={<Notes />} />
           <Route path="/home" element={<Home />} />
           <Route path="/gen-ai" element={<GENAI />} />
+          <Route path="/video-gen" element={<Videogen />} />
         </Route>
       </Routes>
     </Router>

@@ -48,9 +48,12 @@ aside{
 
 .categoria:hover{
     background-color: rgb(196, 193, 193);
+    font-weight: bold;
+    scale: 1.1;
 }
 .categoria.active {
     background-color: rgb(36, 179, 79);
+    color: rgb(255,255,255);
   }
 
 .main{
@@ -96,24 +99,30 @@ aside{
 
 .container-contenido{
     width: 100%;
-    height: 88%;
+    max-height: 88%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
-    padding-top: 30px;
+    padding-top: 70px;
 }
 
 .contenido{
     width: 80%;
-    height: 150px;
+    height: auto;
     border-bottom: 1px solid rgb(0, 0, 0);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
 }
+.contenido:hover{
+    background-color: #F0F0F0;
+}
+
 .contenido-image{
     width: 25%;
     height: 100%;

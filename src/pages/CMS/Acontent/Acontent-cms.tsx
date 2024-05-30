@@ -1,6 +1,8 @@
 import './Acontent-cms.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 
 const AcontentCMS = () => {
@@ -23,52 +25,53 @@ const AcontentCMS = () => {
         <div className="contenido-cms-acontent">
             <form>
                 <div className="container-int-fechaH">
-                    <label className='contenido-cms-Fecha-acontent'>
+                    <Label className='contenido-cms-Fecha-acontent'>
                         <p>Fecha de Publicacion</p>
-                        <input type="date"/>
-                    </label>
-                    <label className='contenido-cms-Hora-acontent'>
+                        <Input type="date"/>
+                    </Label>
+                    <Label className='contenido-cms-Hora-acontent'>
                         <p>Hora</p>
-                        <input type="time" />
-                    </label>
+                        <Input type="time" />
+                    </Label>
                 </div>
                 <div className="container-int-seccion-acontent">
-                    <label className='contenido-cms-seccion-acontent'>
+                    <Label className='contenido-cms-seccion-acontent'>
                         <p>Sección</p>
                         <select value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)} required>
                             <option value="" disabled>-- Selecciona una opción --</option>
                         </select>
-                    </label>
-                    <label className='contenido-cms-seccion-acontent'>
+                    </Label>
+                    <Label className='contenido-cms-seccion-acontent'>
                         <p>Autor</p>
                         <select value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)} required>
                             <option value="" disabled>-- Selecciona una opción --</option>
                         </select>
-                    </label>
-                    <label className='contenido-cms-seccion-acontent'>
+                    </Label>
+                    <Label className='contenido-cms-seccion-acontent'>
                         <p>Categoía</p>
                         <select value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)} required>
                             <option value="" disabled>-- Selecciona una opción --</option>
                         </select>
-                    </label>
-                    <label className='contenido-img-cms-acontent'>
+                    </Label>
+                    <Label htmlFor="picture" className='contenido-img-cms-acontent'>
                         <p>Imagen</p>
-                        <input type="file" accept="image/*"  required className='img-cms-acontent'/>
-                    </label>
-                    <label className='contenido-titulo-cms-acontent'> 
+                        <Input id="picture" type="file"  required className='img-cms-acontent'/>
+                    </Label>
+                    
+                    <Label className='contenido-titulo-cms-acontent'> 
                         <p>Título</p>
-                        <input
+                        <Input
                             type="text"
                             className="titulo-cms-acontent"
                         />
-                    </label>
-                    <label className='contenido-contenido-cms-acontent'>
+                    </Label>
+                    <Label className='contenido-contenido-cms-acontent'>
                         <p>Contenido</p>
                         <div className="contenido-text-area-cms-acontent">
                             <div className="contenido-text-area-cms-acontent-nav"></div>
                             <textarea className="text-area-cms-acontent"/>    
                         </div>
-                    </label>
+                    </Label>
                     
                 </div>
             </form>

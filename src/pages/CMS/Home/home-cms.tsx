@@ -1,6 +1,6 @@
 import './Home-cms.css';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { Button } from "@/components/ui/button"
 
 const HomeCMS = () => {
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ const HomeCMS = () => {
         </div>
         <div className="contenido-cms">
             <div className="container-boton-add-cms">
-                <Link to="/acontent-cms"><button className='boton-cms'>&#8853;</button></Link>
+                <Link to="/acontent-cms"><Button className='boton-cms'>&#8853;</Button></Link>
             </div>
             
         </div>

@@ -14,7 +14,8 @@ const Navbar = () => {
     <nav>
       <Link to="/home"><p>HOME</p></Link>
       <Link to="/gen-ai" className='ai-pos'><p>AI AVATAR</p></Link>
-      <p onClick={handleLogout} style={{ cursor: 'pointer' }}>LOGOUT</p>
+      <Link to="/video-gen" ><p>VIDEOS GENERADOS</p></Link>
+      <p onClick={handleLogout} style={{ cursor: 'pointer' }} className='logout-nav'>LOGOUT</p>
     </nav>
   );
 };

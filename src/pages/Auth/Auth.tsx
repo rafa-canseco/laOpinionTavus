@@ -2,6 +2,8 @@ import './Auth.css';
 import { supabase } from '../../supabase/supabase.ts';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
 const AuthPage = () => {
   const [email, setEmail] = useState('');
@@ -34,13 +36,13 @@ const AuthPage = () => {
           <form className="form" onSubmit={handleLogin}>
             <label className="label-container">
               <p>Email:</p>
-              <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+              <Input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
             </label>
             <label className="label-container">
               <p>Contraseña:</p>
-              <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+              <Input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
             </label>
-            <button type="submit"><p>Login</p></button>{error && <p className="error-message">{error}</p>}
+            <Button type="submit"><p>Login</p></Button>{error && <p className="error-message">{error}</p>}
           </form>
         </div>
         <p className='registrarse' onClick={handleRegister} style={{ cursor: 'pointer' }}>Registrarse</p>
