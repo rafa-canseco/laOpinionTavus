@@ -1,9 +1,8 @@
-import './Home-cms.css';
-import { Link, useNavigate } from 'react-router-dom';
+import './home-cms.css';
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button"
 
 const HomeCMS = () => {
-    const navigate = useNavigate();
 
   return(
     <div className="container-ext-cms">

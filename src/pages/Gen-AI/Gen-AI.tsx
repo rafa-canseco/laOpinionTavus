@@ -1,15 +1,16 @@
-import "./Gen-AI.css";
+import "./Gen-aI.css";
 import Navbar from "../../components/nav-bar/nav-bar";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import SpinnerModal from "../../components/modal-spiner/Modal Spinner";
 
 const GENAI = () => {
-  const [selectedNote] = useState(`El Servicio Meteorológico Nacional (NWS, en inglés) informó que las tormentas fuertes y las amenazas de lluvias excesivas se mantienen hoy desde el sur de las Planicies, en el centro del país, hasta el sudeste, y continuarán su curso al este hasta el viernes.
-El jueves un frente que se extiende desde la costa del Atlántico hacia el oeste al valle del río Ohio y hacia el sudoeste a las altas Planicies, se trasladará hacia la costa atlántica el viernes y permanecerá sobre Florida el sábado”, indicó el NWS.
-El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muerte de un hombre de 22 años de edad que estaba adentro de un vehículo aplastado por la caída de un árbol.`);
+  const location = useLocation();
+  const article = location.state?.article;
+  const [selectedNote] = useState(article ? article.attributes.Contenido.map(content => content.children[0].text).join(" ") : "");
   const [summary, setSummary] = useState("");
   const [videoTitle, setVideoTitle] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -71,12 +72,12 @@ El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muert
     setShowModal(false); 
   };
 
-  const updateWordCount = (text) => {
+  const updateWordCount = (text:any) => {
     const words = text.trim().split(/\s+/);
     setWordCount(words.length);
   };
 
-  const handleSummaryChange = (e) => {
+  const handleSummaryChange = (e:any) => {
     const newText = e.target.value;
     setSummary(newText);
     updateWordCount(newText);
@@ -89,7 +90,7 @@ El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muert
         <div className="container-int-Encabezado">
           <div className="container-titulo-G">
             <h2>
-              <b>Encabezado</b>
+              <b>{article ? article.attributes.Titulo : "Encabezado"}</b>
             </h2>
           </div>
           <div className="container-encabezado-contenido">

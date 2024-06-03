@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Notes from './pages/Notes/Notes';
@@ -19,7 +19,7 @@ import AcontentCMS from './pages/CMS/Acontent/Acontent-cms'
 function App() {
   useEffect(() => {
     window.history.pushState(null, document.title, window.location.href);
-    window.addEventListener('popstate', (event) => {
+    window.addEventListener('popstate', () => {
       window.history.pushState(null, document.title, window.location.href);
     });
   }, []);

@@ -1,4 +1,4 @@
-.container-ext{
+.container-ext {
     width: 100%;
     height: 90vh;
     display: flex;
@@ -7,7 +7,7 @@
     flex-direction: column;
 }
 
-.container-int{
+.container-int {
     width: 100%;
     height: 85%;
     display: flex;
@@ -15,7 +15,8 @@
     align-items: center;
     flex-direction: row;
 }
-aside{
+
+aside {
     width: 25%;
     height: 100%;
     display: flex;
@@ -28,12 +29,14 @@ aside{
     position: sticky;
     top: 0;
 }
-.titulo{
+
+.titulo {
     padding-top: 40px;
     margin-bottom: 20px;
     font-size: 35px;
 }
-.categoria{
+
+.categoria {
     width: 80%;
     padding-left: 35px;
     justify-content: baseline;
@@ -42,21 +45,20 @@ aside{
     display: flex;
 }
 
-.categoria p{
+.categoria p {
     font-size: 25px;
 }
 
-.categoria:hover{
+.categoria:hover {
     background-color: rgb(196, 193, 193);
-    font-weight: bold;
-    scale: 1.1;
 }
+
 .categoria.active {
     background-color: rgb(36, 179, 79);
-    color: rgb(255,255,255);
-  }
+    color: rgb(255, 255, 255);
+}
 
-.main{
+.main {
     width: 75%;
     height: 100%;
     display: flex;
@@ -64,7 +66,8 @@ aside{
     align-items: center;
     flex-direction: column;
 }
-.container-Fecha{
+
+.container-Fecha {
     width: 100%;
     height: 12%;
     display: flex;
@@ -74,40 +77,47 @@ aside{
     position: sticky;
     top: 0;
 }
-.categoria-activa{
+
+.categoria-activa {
     position: absolute;
     margin-right: 70%;
 }
 
-.categoria-activa p{
+.categoria-activa p {
     font-size: 25px;
 }
-.Flechas{
+
+.Flechas {
     font-size: 30px;
     cursor: pointer;
 }
-.Fecha{
+
+.Fecha {
     flex-direction: row;
     display: flex;
     gap: 20px;
     justify-content: center;
     align-items: center;
 }
-.Fechas-sele{
+
+.Fechas-sele {
     font-size: 20px;
 }
 
-.container-contenido{
+.container-contenido {
     width: 100%;
-    max-height: 88%;
+    height: 88%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 70px;
+    gap: 20px;
+    padding-top: 30px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.contenido{
+.contenido {
     width: 80%;
     height: auto;
     border-bottom: 1px solid rgb(0, 0, 0);
@@ -115,15 +125,14 @@ aside{
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    
-}
-.contenido:hover{
-    background-color: #F0F0F0;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    min-height: 150px; /* Ajusta este valor según tus necesidades */
 }
 
-.contenido-image{
+.contenido-image {
     width: 25%;
     height: 100%;
     /*background-color: rgb(0, 0, 0);*/
@@ -131,25 +140,44 @@ aside{
     justify-content: center;
     align-items: baseline;
 }
-.img-contenido{
+
+.img-contenido {
     width: 130px;
     height: 130px;
     background-color: rgb(0, 0, 0);
 }
-.contenido-total{
+
+.contenido-total {
     width: 75%;
-    height: 170px;
+    height: auto;
     display: flex;
     flex-direction: column;
-    gap: 10px; 
+    gap: 10px;
     padding-left: 20px;
     text-align: left;
     justify-content: baseline;
     align-items: baseline;
 }
-.contenido-titulo h1{
+
+.contenido-titulo h1 {
     font-size: 25px;
 }
-.contenido-text p{
+
+.contenido-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5; /* Número de líneas antes de truncar */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    max-height: 7.5em; /* Ajusta según el número de líneas y el tamaño de la fuente */
+    width: 100%; /* Asegura que el texto ocupe todo el ancho del contenedor */
+}
+
+.contenido-text p {
     font-size: 18px;
+    margin: 0;
+    white-space: normal; /* Permite que el texto se ajuste en varias líneas */
+    overflow: hidden; /* Oculta el desbordamiento */
+    text-overflow: ellipsis; /* Añade puntos suspensivos al final del texto */
 }
