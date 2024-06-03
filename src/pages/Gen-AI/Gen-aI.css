@@ -83,10 +83,11 @@
 }
 .container-editor-contenido{
     width: 80%;
-    height: 45%;
+    height: 43%;
     background-color: rgb(225, 225, 225);
     padding: 20px;
     text-align: left;
+    
 }   
 .container-editor-contenido textarea{
     background-color: rgb(225, 225, 225);
@@ -125,6 +126,12 @@
     background-color: rgb(36, 179, 79);
 }
 
-.titulo-video-gen-ai {
-    width: 70%;
+.container-boton input{
+    width: 60%;
+}
+.contador-editor-p{
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: end;
 }

@@ -1,12 +1,16 @@
-import "./Gen-AI.css";
+import "./Gen-aI.css";
 import Navbar from "../../components/nav-bar/nav-bar";
-import React, { useState } from "react";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import SpinnerModal from "../../components/modal-spiner/Modal Spinner";
 
 const GENAI = () => {
-  const [selectedNote] = useState(`El Servicio Meteorológico Nacional (NWS, en inglés) informó que las tormentas fuertes y las amenazas de lluvias excesivas se mantienen hoy desde el sur de las Planicies, en el centro del país, hasta el sudeste, y continuarán su curso al este hasta el viernes.
-El jueves un frente que se extiende desde la costa del Atlántico hacia el oeste al valle del río Ohio y hacia el sudoeste a las altas Planicies, se trasladará hacia la costa atlántica el viernes y permanecerá sobre Florida el sábado”, indicó el NWS.
-El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muerte de un hombre de 22 años de edad que estaba adentro de un vehículo aplastado por la caída de un árbol.`);
+  const location = useLocation();
+  const article = location.state?.article;
+  const [selectedNote] = useState(article ? article.attributes.Contenido.map(content => content.children[0].text).join(" ") : "");
   const [summary, setSummary] = useState("");
   const [videoTitle, setVideoTitle] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -14,6 +18,8 @@ El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muert
     downloadUrl: "",
     streamUrl: "",
   });
+  const [wordCount, setWordCount] = useState(0);
+  const [showModal, setShowModal] = useState(false);
 
   const handleGenerateSummary = async () => {
     setIsLoading(true);
@@ -27,6 +33,7 @@ El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muert
       );
       if (response.status === 200) {
         setSummary(response.data.response);
+        updateWordCount(response.data.response);
       } else {
         console.error("Error en la respuesta del servidor");
         setSummary("Error al generar el resumen.");
@@ -39,6 +46,7 @@ El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muert
   };
 
   const handleGenerateVideo = async () => {
+    setShowModal(true); 
     setIsLoading(true);
     const requestData = {
       script: summary,
@@ -61,6 +69,18 @@ El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muert
       console.error("Error al realizar la solicitud", error);
     }
     setIsLoading(false);
+    setShowModal(false); 
+  };
+
+  const updateWordCount = (text:any) => {
+    const words = text.trim().split(/\s+/);
+    setWordCount(words.length);
+  };
+
+  const handleSummaryChange = (e:any) => {
+    const newText = e.target.value;
+    setSummary(newText);
+    updateWordCount(newText);
   };
 
   return (
@@ -70,16 +90,16 @@ El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muert
         <div className="container-int-Encabezado">
           <div className="container-titulo-G">
             <h2>
-              <b>Encabezado</b>
+              <b>{article ? article.attributes.Titulo : "Encabezado"}</b>
             </h2>
           </div>
           <div className="container-encabezado-contenido">
             <p className="text-area">{selectedNote}</p>
           </div>
           <div className="container-boton">
-            <button onClick={handleGenerateSummary} disabled={isLoading}>
+            <Button onClick={handleGenerateSummary} disabled={isLoading}>
               <p>GENERAR RESUMEN</p>
-            </button>
+            </Button>
           </div>
         </div>
         <div className="container-int-Editor">
@@ -92,23 +112,25 @@ El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muert
             <textarea
               className="text-area"
               value={isLoading ? "Generando resumen de la nota..." : summary}
-              onChange={(e) => setSummary(e.target.value)}
+              onChange={handleSummaryChange}
               placeholder="Aquí aparecerá el resumen de la nota seleccionada."
               disabled={isLoading}
             />
           </div>
+          <div className="contador-editor-p">
+              <p>Palabras: {wordCount}</p>
+            </div>
           <div className="container-boton">
-            <input
+            <Input
               type="text"
-              className="titulo-video-gen-ai"
               value={videoTitle}
               onChange={(e) => setVideoTitle(e.target.value)}
               placeholder="Introduce un título para el video"
               disabled={isLoading}
             />
-            <button onClick={handleGenerateVideo} disabled={isLoading}>
+            <Button onClick={handleGenerateVideo} disabled={isLoading}>
               <p>GENERAR VIDEO</p>
-            </button>
+            </Button>
           </div>
 
           <div className="container-video-descargable">
@@ -125,13 +147,14 @@ El sheriff del condado Clairborne, en Tennessee, Bob Books, informó de la muert
 
           <div className="container-boton-DonwloadVideo">
             <a href={videoUrls.downloadUrl} download>
-              <button>
+              <Button>
                 <p>Descargar Video</p>
-              </button>
+              </Button>
             </a>
           </div>
         </div>
       </div>
+      <SpinnerModal isVisible={showModal} message="Generando video..." />
     </div>
   );
 };
