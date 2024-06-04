@@ -4,14 +4,22 @@ import axios from "axios";
 import "./Home.css";
 import Navbar from "../../components/nav-bar/nav-bar";
 
+interface Article {
+  id: number;
+  attributes: {
+    Titulo: string;
+    Contenido: { children: { text: string }[] }[];
+  };
+}
+
 const Home = () => {
   const [activeCategory, setActiveCategory] = useState("Política");
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState<Article[]>([]);
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchArticles = async (category, page) => {
+    const fetchArticles = async (category:any, page:any) => {
       try {
         const response = await axios.get(
           `https://jellyfish-app-vfu6c.ondigitalocean.app/api/articles`, {

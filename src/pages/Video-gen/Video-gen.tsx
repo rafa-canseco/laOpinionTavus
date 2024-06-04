@@ -4,9 +4,17 @@ import Navbar from '../../components/nav-bar/nav-bar';
 import { Button } from "@/components/ui/button"
 import axios from 'axios';
 
+interface Video {
+    video_id: string;
+    gif_thumbnail_url: string;
+    video_name: string;
+    created_at: string;
+    download_url: string;
+}
+
 const Videogen = () => {
     const TAVUS = "4f3f337b336949fa84027c95900c5216";
-    const [videos, setVideos] = useState([]);
+    const [videos, setVideos] = useState<Video[]>([]);
 
     useEffect(() => {
         const fetchVideos = async () => {

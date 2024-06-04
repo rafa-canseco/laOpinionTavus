@@ -10,7 +10,7 @@ import SpinnerModal from "../../components/modal-spiner/Modal Spinner";
 const GENAI = () => {
   const location = useLocation();
   const article = location.state?.article;
-  const [selectedNote] = useState(article ? article.attributes.Contenido.map(content => content.children[0].text).join(" ") : "");
+  const [selectedNote] = useState(article ? article.attributes.Contenido.map((content:any) => content.children[0].text).join(" ") : "");
   const [summary, setSummary] = useState("");
   const [videoTitle, setVideoTitle] = useState("");
   const [isLoading, setIsLoading] = useState(false);
