@@ -52,8 +52,10 @@ aside {
     font-size: 25px;
 }
 
-.categoria:hover {
+.categoria:hover{
     background-color: rgb(196, 193, 193);
+    font-weight: bold;
+    scale: 1.1;
 }
 
 .categoria.active {
@@ -118,7 +120,9 @@ aside {
     padding: 20px;
     overflow-y: auto; /* Añadido para permitir el desplazamiento vertical */
 }
-
+.contenido:hover{
+    background-color: rgb(196, 193, 193);
+}
 .contenido {
     width: 100%; /* Ajustado a 100% para ocupar todo el ancho del contenedor */
     border-bottom: 1px solid rgb(0, 0, 0);
