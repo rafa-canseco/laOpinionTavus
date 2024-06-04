@@ -7,13 +7,22 @@ import Navbar from "../../components/nav-bar/nav-bar";
 const Home = () => {
   const [activeCategory, setActiveCategory] = useState("Política");
   const [articles, setArticles] = useState([]);
+  const [page, setPage] = useState(1);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchArticles = async () => {
+    const fetchArticles = async (category, page) => {
       try {
         const response = await axios.get(
-          "https://jellyfish-app-vfu6c.ondigitalocean.app/api/articles"
+          `https://jellyfish-app-vfu6c.ondigitalocean.app/api/articles`, {
+            params: {
+              'filters[Categoria][Nombre][$eq]': category,
+              'pagination[page]': page,
+              'pagination[pageSize]': 10,
+              'sort': ['Fecha_de_Publicacion:desc'],
+              'populate': '*'
+            }
+          }
         );
         setArticles(response.data.data);
       } catch (error) {
@@ -21,16 +30,26 @@ const Home = () => {
       }
     };
 
-    fetchArticles();
-  }, []);
+    fetchArticles(activeCategory, page);
+  }, [activeCategory, page]);
 
   const handleClick = (category: string) => {
     setActiveCategory(category);
+    console.log(category)
+    setPage(1); 
   };
   
-  const handleArticleClick = (article) => {
+  const handleArticleClick = (article: any) => {
     navigate("/gen-ai", {state: {article}})
   }
+
+  const handleNextPage = () => {
+    setPage(prevPage => prevPage + 1);
+  };
+
+  const handlePreviousPage = () => {
+    setPage(prevPage => Math.max(prevPage - 1, 1));
+  };
 
   return (
     <div className="container-ext">
@@ -38,70 +57,15 @@ const Home = () => {
       <div className="container-int">
         <aside className="categorias">
           <h1 className="titulo">Categorias</h1>
-          <div
-            className={`categoria ${
-              activeCategory === "Política" ? "active" : ""
-            }`}
-            onClick={() => handleClick("Política")}
-          >
-            <p>Política</p>
-          </div>
-          <div
-            className={`categoria ${
-              activeCategory === "Empresa" ? "active" : ""
-            }`}
-            onClick={() => handleClick("Empresa")}
-          >
-            <p>Empresa</p>
-          </div>
-          <div
-            className={`categoria ${
-              activeCategory === "Policía" ? "active" : ""
-            }`}
-            onClick={() => handleClick("Policía")}
-          >
-            <p>Policía</p>
-          </div>
-          <div
-            className={`categoria ${
-              activeCategory === "Estado" ? "active" : ""
-            }`}
-            onClick={() => handleClick("Estado")}
-          >
-            <p>Estado</p>
-          </div>
-          <div
-            className={`categoria ${
-              activeCategory === "Columna" ? "active" : ""
-            }`}
-            onClick={() => handleClick("Columna")}
-          >
-            <p>Columna</p>
-          </div>
-          <div
-            className={`categoria ${
-              activeCategory === "Social" ? "active" : ""
-            }`}
-            onClick={() => handleClick("Social")}
-          >
-            <p>Social</p>
-          </div>
-          <div
-            className={`categoria ${
-              activeCategory === "Farándula" ? "active" : ""
-            }`}
-            onClick={() => handleClick("Farándula")}
-          >
-            <p>Farándula</p>
-          </div>
-          <div
-            className={`categoria ${
-              activeCategory === "Deportes" ? "active" : ""
-            }`}
-            onClick={() => handleClick("Deportes")}
-          >
-            <p>Deportes</p>
-          </div>
+          {["CAPITAL", "EMPRESA", "ESTADO", "UNIVERSIDAD", "POLÍTICA", "POLICÍA", "FARÁNDULA", "DEPORTES", "NACIONAL", "COLUMNA", "CULTURA", "EDUCACIÓN", "SALUD", "ECONOMÍA", "GLOBAL"].map(category => (
+            <div
+              key={category}
+              className={`categoria ${activeCategory === category ? "active" : ""}`}
+              onClick={() => handleClick(category)}
+            >
+              <p>{category}</p>
+            </div>
+          ))}
         </aside>
         <div className="main">
           <div className="container-Fecha">
@@ -109,9 +73,9 @@ const Home = () => {
               <p>{activeCategory}</p>
             </div>
             <div className="Fecha">
-              <p className="Flechas">◀</p>
-              <p className="Fechas-sele">HOY</p>
-              <p className="Flechas">▶</p>
+              <p className="Flechas" onClick={handlePreviousPage}>◀</p>
+              <p className="Fechas-sele">Página {page}</p>
+              <p className="Flechas" onClick={handleNextPage}>▶</p>
             </div>
           </div>
           <div className="container-contenido">
