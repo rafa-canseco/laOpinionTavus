@@ -15,6 +15,7 @@ import PrivateRoute from './components/PrivateRoute/privateroute';
 import AuthPageCMS from './pages/CMS/Auth/Auth-cms';
 import HomeCMS from './pages/CMS/Home/home-cms';
 import AcontentCMS from './pages/CMS/Acontent/Acontent-cms'
+import EditcontentCMS from './pages/CMS/Editcontent/Editcontent-cms'
 
 function App() {
   useEffect(() => {
@@ -34,6 +35,7 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/home-cms" element={<HomeCMS />} />
           <Route path="/acontent-cms" element={<AcontentCMS />} />
+          <Route path="/editcontent-cms" element={<EditcontentCMS />} />
           <Route path="/notes" element={<Notes />} />
           <Route path="/home" element={<Home />} />
           <Route path="/gen-ai" element={<GENAI />} />

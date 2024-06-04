@@ -1,3 +1,9 @@
+.container-ext-cms-home{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
 .navbar-cms-home{
     width: 100%;
     height: 60px;
@@ -11,21 +17,37 @@
 .navbar-cms-home p{
     font-size: 18px;
 }
+.Id-cms{
+    width: 10%;
+    display:flex;
+    justify-content:baseline;
+    align-items:center;
+    
+}
 .Titulo-cms{
-    padding-left: 20px;
+    width: 25%;
+    display:flex;
+    justify-content:baseline;
+    align-items:center
 }
 .Fecha-cms{
-    padding-left: 60px;
+    width: 40%;
+    display:flex;
+    justify-content:baseline;
+    align-items:center;
 }
 .State-cms{
-    padding-left: 80px;
+    width: 25%;
+    display:flex;
+    justify-content:baseline;
+    align-items:center;
 }
-.contenido-cms{
+.contenido-cms-home{
     width: 100%;
-    min-height: 90%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: antiquewhite;
+    /*background-color: antiquewhite;*/
 }
 
 .container-boton-add-cms{
@@ -45,3 +67,55 @@
     color: rgb(255, 255, 255);
     font-size: 125px;
 }
+
+.cms-home-content{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    flex-direction: row;
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+.cms-home-content p{
+    font-size: 15px;
+}
+.Id-cms-content{
+    width: 10%;
+    display:flex;
+    justify-content:baseline;
+    align-items:center;
+    padding-left: 5px;
+    
+}
+.Titulo-cms-content{
+    width: 25%;
+    display:flex;
+    justify-content:baseline;
+    align-items:center;
+    padding-left: 5px;
+}
+.Fecha-cms-content{
+    width: 40%;
+    display:flex;
+    justify-content:baseline;
+    align-items:center;
+    padding-left: 5px;
+}
+.State-cms-content{
+    width: 25%;
+    display:flex;
+    justify-content:baseline;
+    align-items:center;
+    padding-left: 5px;
+}
+.cms-home-content-estado,.cms-home-content-estado-draft{
+    width: 90%;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 2px;
+}
+.cms-home-content-estado p{
+    color: rgb(10, 209, 57);
+}
+.cms-home-content-estado-draft p{
+    color: rgb(10, 176, 209);
+}
+    

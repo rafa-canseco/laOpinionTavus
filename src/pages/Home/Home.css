@@ -1,9 +1,7 @@
-body{
-    overflow: hidden;
-}
+
 .container-ext {
     width: 100%;
-    height: 100vh; /* Cambiado a 100vh para usar toda la altura de la ventana */
+    height: 100vh; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,10 +10,10 @@ body{
 
 .container-int {
     width: 100%;
-    height: 100%; /* Cambiado a 100% para ocupar toda la altura del contenedor externo */
+    height: 100%; 
     display: flex;
     justify-content: center;
-    align-items: stretch; /* Cambiado a stretch para que los hijos se expandan a lo largo del contenedor */
+    align-items: stretch; 
     flex-direction: row;
 }
 
@@ -24,8 +22,8 @@ aside {
     height: 100%;
     display: flex;
     background-color: rgb(220, 220, 220);
-    justify-content: flex-start; /* Cambiado a flex-start para alinear elementos al inicio */
-    align-items: flex-start; /* Cambiado a flex-start para alinear elementos al inicio */
+    justify-content: flex-start; 
+    align-items: flex-start; 
     flex-direction: column;
     gap: 10px;
     padding-left: 50px;
@@ -42,7 +40,7 @@ aside {
 .categoria {
     width: 80%;
     padding-left: 35px;
-    justify-content: flex-start; /* Cambiado a flex-start para alinear elementos al inicio */
+    justify-content: flex-start; 
     align-items: center;
     cursor: pointer;
     display: flex;
@@ -67,8 +65,8 @@ aside {
     width: 75%;
     height: 100%;
     display: flex;
-    justify-content: flex-start; /* Cambiado a flex-start para alinear elementos al inicio */
-    align-items: flex-start; /* Cambiado a flex-start para alinear elementos al inicio */
+    justify-content: flex-start; 
+    align-items: flex-start; 
     flex-direction: column;
 }
 
@@ -110,24 +108,24 @@ aside {
 
 .container-contenido {
     width: 100%;
-    height: 88%; /* Ajustado para ocupar el espacio disponible */
+    height: 88%; 
     display: flex;
-    justify-content: flex-start; /* Cambiado a flex-start para alinear elementos al inicio */
-    align-items: flex-start; /* Cambiado a flex-start para alinear elementos al inicio */
+    justify-content: flex-start;
+    align-items: flex-start; 
     flex-direction: column;
     gap: 20px;
     padding-top: 30px;
     padding: 20px;
-    overflow-y: auto; /* Añadido para permitir el desplazamiento vertical */
+    overflow-y: auto; 
 }
 .contenido:hover{
     background-color: rgb(196, 193, 193);
 }
 .contenido {
-    width: 100%; /* Ajustado a 100% para ocupar todo el ancho del contenedor */
+    width: 100%; 
     border-bottom: 1px solid rgb(0, 0, 0);
     display: flex;
-    justify-content: flex-start; /* Cambiado a flex-start para alinear elementos al inicio */
+    justify-content: flex-start; 
     align-items: center;
     flex-direction: row;
     border: 1px solid #ddd;
@@ -158,8 +156,8 @@ aside {
     gap: 10px;
     padding-left: 20px;
     text-align: left;
-    justify-content: flex-start; /* Cambiado a flex-start para alinear elementos al inicio */
-    align-items: flex-start; /* Cambiado a flex-start para alinear elementos al inicio */
+    justify-content: flex-start;
+    align-items: flex-start; 
 }
 .contenido-titulo{
     width: 90%;
@@ -167,25 +165,25 @@ aside {
 
 .contenido-titulo h1 {
     font-size: 25px;
-    white-space: nowrap; /* Evita el salto de línea */
-    overflow: hidden; /* Oculta el desbordamiento */
+    white-space: nowrap; 
+    overflow: hidden; 
     text-overflow: ellipsis;
 }
 
 .contenido-text {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3; /* Ajustado para mostrar un máximo de 3 líneas */
+    -webkit-line-clamp: 3;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    width: 100%; /* Asegura que el texto ocupe todo el ancho del contenedor */
+    width: 100%; 
 }
 
 .contenido-text p {
     font-size: 18px;
     margin: 0;
-    white-space: normal; /* Permite que el texto se ajuste en varias líneas */
-    overflow: hidden; /* Oculta el desbordamiento */
-    text-overflow: ellipsis; /* Añade puntos suspensivos al final del texto */
+    white-space: normal;
+    overflow: hidden; 
+    text-overflow: ellipsis;
 }
