@@ -33,15 +33,23 @@
     justify-content: center;
     gap: 20px;
 }
-.container-titulo-G{
-    align-items: center;
-    justify-content: baseline;
+.container-titulo-G,.container-titulo-G2{
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
     display: flex;
     width: 80%;
     height: auto;
+    gap: 10px;
+}
+.container-titulo-G2 input{
+    width: 60%;
 }
 .container-titulo-G h2 b{
     font-size: 25px;
+}
+.container-titulo-G2 h2{
+    font-size: 20px;
 }
 .container-encabezado-contenido{
     width: 80%;
@@ -77,6 +85,8 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .container-int-Editor h2{
     font-size: 25px;
@@ -116,7 +126,10 @@
 .container-boton button p, .container-boton-DonwloadVideo button p{
     color: rgb(225, 225, 225);
     font-size: 20px;
-}           
+}
+.container-boton button:hover{
+    background-color: rgb(36, 179, 79);
+}
 .container-video-descargable{
     width: 80%;
     height: 30vh;
@@ -125,10 +138,10 @@
 .container-boton-DonwloadVideo button{
     background-color: rgb(36, 179, 79);
 }
-
-.container-boton input{
-    width: 60%;
+.container-boton-DonwloadVideo button:hover{
+    scale: 1.1;
 }
+
 .contador-editor-p{
     width: 80%;
     height: auto;

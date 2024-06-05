@@ -69,7 +69,7 @@ const RegistrarPage = () => {
                 required
               />
             </label>
-            <button type="submit"><p>Registrar</p></button>
+            <button type="submit"><p>CREAR CUENTA</p></button>
             {error && <p className="error-message">{error}</p>}
             {success && <p className="success-message">{success}</p>}
           </form>

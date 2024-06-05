@@ -1,25 +1,32 @@
 nav{
     width: 100%;
-    height: 5%;
+    height: 5vh;
     background-color: rgb(0, 0, 0);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 35px;
     position: sticky;
     top: 0;
     gap: 20px;
 }
+
 nav p{
     color: #fff;
-    font-size: 25px;
+    font-size: 17px;
 }
-.ai-pos{
-    /*margin-right: 800px;*/
+
+nav p:hover{
+    font-weight: bold;
 }
-.vi-pos-nav{
-    /*margin-right: 100px;*/
+.nav-iz{
+    flex-direction: row;
+    display: flex;
+    gap: 25px;
 }
-.logout-nav{
-    margin-left: 500px;
+nav a{
+    text-decoration: none;
+}
+nav a.active {
+    border-bottom: 2px solid rgb(255, 255, 255); /* Añade el subrayado */
 }

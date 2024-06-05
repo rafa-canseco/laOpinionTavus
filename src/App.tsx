@@ -10,11 +10,6 @@ import RegistrarPage from './pages/Registrar/Registrar';
 import PrivateRoute from './components/PrivateRoute/privateroute';
 
 
-/* CMS */
-
-import AuthPageCMS from './pages/CMS/Auth/Auth-cms';
-import HomeCMS from './pages/CMS/Home/home-cms';
-import AcontentCMS from './pages/CMS/Acontent/Acontent-cms'
 
 function App() {
   useEffect(() => {
@@ -28,12 +23,9 @@ function App() {
     <Router>
       <Routes>
       
-        <Route path="/cms" element={<AuthPageCMS />} />
         <Route path="/" element={<AuthPage />} />
         <Route path="/registrar" element={<RegistrarPage />} />
         <Route element={<PrivateRoute />}>
-          <Route path="/home-cms" element={<HomeCMS />} />
-          <Route path="/acontent-cms" element={<AcontentCMS />} />
           <Route path="/notes" element={<Notes />} />
           <Route path="/home" element={<Home />} />
           <Route path="/gen-ai" element={<GENAI />} />

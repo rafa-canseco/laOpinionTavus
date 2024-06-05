@@ -12,10 +12,13 @@ const Navbar = () => {
 
   return (
     <nav>
-      <Link to="/home"><p>HOME</p></Link>
-      <Link to="/gen-ai" className='ai-pos'><p>AI AVATAR</p></Link>
-      <Link to="/video-gen" ><p>VIDEOS GENERADOS</p></Link>
+      <div className='nav-iz'>
+        <Link to="/home" className={location.pathname === '/home' ? 'active' : ''}><p>NOTAS</p></Link>
+        <Link to="/gen-ai" className={location.pathname === '/gen-ai' ? 'active' : ''}><p>AI AVATAR</p></Link>
+        <Link to="/video-gen" className={location.pathname === '/video-gen' ? 'active' : ''}><p>VIDEOS GENERADOS</p></Link>
+      </div>
       <p onClick={handleLogout} style={{ cursor: 'pointer' }} className='logout-nav'>LOGOUT</p>
+      
     </nav>
   );
 };

@@ -103,10 +103,18 @@ const GENAI = () => {
           </div>
         </div>
         <div className="container-int-Editor">
-          <div className="container-titulo-G">
-            <h2>
+          
+          <div className="container-titulo-G2">
+          <Input
+              type="text"
+              value={videoTitle}
+              onChange={(e) => setVideoTitle(e.target.value)}
+              placeholder="Introduce un título para el video"
+              disabled={isLoading}
+            />
+            
               <b>EDITOR DE TEXTO</b>
-            </h2>
+            
           </div>
           <div className="container-editor-contenido">
             <textarea
@@ -121,13 +129,6 @@ const GENAI = () => {
               <p>Palabras: {wordCount}</p>
             </div>
           <div className="container-boton">
-            <Input
-              type="text"
-              value={videoTitle}
-              onChange={(e) => setVideoTitle(e.target.value)}
-              placeholder="Introduce un título para el video"
-              disabled={isLoading}
-            />
             <Button onClick={handleGenerateVideo} disabled={isLoading}>
               <p>GENERAR VIDEO</p>
             </Button>
@@ -145,6 +146,7 @@ const GENAI = () => {
             )}
           </div>
 
+          {videoUrls.downloadUrl && (
           <div className="container-boton-DonwloadVideo">
             <a href={videoUrls.downloadUrl} download>
               <Button>
@@ -152,6 +154,7 @@ const GENAI = () => {
               </Button>
             </a>
           </div>
+        )}
         </div>
       </div>
       <SpinnerModal isVisible={showModal} message="Generando video..." />

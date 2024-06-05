@@ -13,7 +13,7 @@ interface Article {
 }
 
 const Home = () => {
-  const [activeCategory, setActiveCategory] = useState("Política");
+  const [activeCategory, setActiveCategory] = useState("CAPITAL");
   const [articles, setArticles] = useState<Article[]>([]);
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
@@ -64,7 +64,7 @@ const Home = () => {
       <Navbar />
       <div className="container-int">
         <aside className="categorias">
-          <h1 className="titulo">Categorias</h1>
+          <h1 className="titulo">CATEGORÍAS</h1>
           {["CAPITAL", "EMPRESA", "ESTADO", "UNIVERSIDAD", "POLÍTICA", "POLICÍA", "FARÁNDULA", "DEPORTES", "NACIONAL", "COLUMNA", "CULTURA", "EDUCACIÓN", "SALUD", "ECONOMÍA", "GLOBAL"].map(category => (
             <div
               key={category}

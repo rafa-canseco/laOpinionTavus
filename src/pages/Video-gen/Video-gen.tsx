@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Navbar from '../../components/nav-bar/nav-bar';
 import { Button } from "@/components/ui/button"
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 interface Video {
     video_id: string;
@@ -13,7 +14,7 @@ interface Video {
 }
 
 const Videogen = () => {
-    const TAVUS = "4f3f337b336949fa84027c95900c5216";
+    const TAVUS = import.meta.env.VITE_TAVUS_API_KEY;
     const [videos, setVideos] = useState<Video[]>([]);
 
     useEffect(() => {
@@ -42,7 +43,7 @@ const Videogen = () => {
             <Navbar />
             <div className="container-titulo-vid-gen">
                 <h1>VIDEOS GENERADOS</h1>
-                <Button><p>CREAR NUEVO VIDEO</p></Button>
+                <Link to="/gen-ai"><Button><p>CREAR NUEVO VIDEO</p></Button></Link>
             </div>
             <div className="navbar-vid-gen">
                 <div className='navbar-vid-gen-Video'>
