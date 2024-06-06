@@ -13,25 +13,24 @@ interface Video {
 }
 
 const Videogen = () => {
-    const TAVUS = "4f3f337b336949fa84027c95900c5216";
     const [videos, setVideos] = useState<Video[]>([]);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchVideos = async () => {
             try {
-                const options = {
-                    method: 'GET',
-                    headers: {
-                        'x-api-key': TAVUS
-                    }
-                };
-                const response = await axios.get(
-                    `/api/v2/videos`, options
-                );
-                setVideos(response.data.data);
-                console.log(response.data.data);
+                const response = await axios.get('https://servidorscarlett.com/videos_tavus');
+                console.log(response.data);
+                const responseData = JSON.parse(response.data.response);
+                if (responseData && responseData.data) {
+                    const videosData = responseData.data;
+                    setVideos(videosData);
+                } else {
+                    setError('La respuesta no tiene el formato esperado');
+                }
             } catch (error) {
-                console.log("error fetching articles", error);
+                console.log("Error al obtener los videos", error);
+                setError('Error al obtener los videos. Por favor, intenta nuevamente más tarde.');
             }
         };
         fetchVideos();
@@ -55,6 +54,7 @@ const Videogen = () => {
                     <p>FECHA DE CREACIÓN</p>
                 </div>
             </div>
+            {error && <p>{error}</p>}
             {videos.map((video) => (
                 <div className="content-vid-gen" key={video.video_id}>
                     <div className='content-vid-gen-Video'>

@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from "path";
-import { createProxyMiddleware } from 'http-proxy-middleware';
 
 export default defineConfig({
   plugins: [react()],
@@ -10,10 +9,14 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+  },
   server: {
     proxy: {
       '/api': {
-        target: 'https://tavusapi.com',
+        target: 'http://localhost:3000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

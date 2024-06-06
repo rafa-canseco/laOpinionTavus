@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+ import logo from '../../assets/img/Auth/logo.png';
 
 const AuthPage = () => {
   const [email, setEmail] = useState('');
@@ -28,7 +29,8 @@ const AuthPage = () => {
   return (
     <div className="container-ext">
       <div className="container-titulo">
-        <img src="src/assets/img/Auth/la-opinion-logo.png" alt="Logo la opinion" className='LogoAuth'/>
+        
+   <img src={logo} alt="Logo la opinion" className='LogoAuth'/>
         <h1>News Room</h1>
       </div>
       <div className="container-login">
