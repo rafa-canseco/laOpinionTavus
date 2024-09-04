@@ -97,9 +97,10 @@ const Home = () => {
                     <h1>{article.attributes.Titulo}</h1>
                   </div>
                   <div className="contenido-text">
-                    {article.attributes.Contenido.map((content, index) => (
-                      <p key={index}>{content.children[0].text}</p>
-                    ))}
+                    {Array.isArray(article.attributes.Contenido) &&
+                      article.attributes.Contenido.map((content, index) => (
+                        <p key={index}>{content.children[0].text}</p>
+                      ))}
                   </div>
                 </div>
               </div>
