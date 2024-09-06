@@ -2,7 +2,6 @@ import './Video-gen.css';
 import { useEffect, useState } from 'react';
 import Navbar from '../../components/nav-bar/nav-bar';
 import { Button } from "@/components/ui/button"
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 interface Video {
@@ -19,20 +18,20 @@ const Videogen = () => {
 
     useEffect(() => {
         const fetchVideos = async () => {
+            const options: RequestInit = {
+                method: 'GET',
+                headers: {
+                    'x-api-key': TAVUS
+                }
+            };
+
             try {
-                const options = {
-                    method: 'GET',
-                    headers: {
-                        'x-api-key': TAVUS
-                    }
-                };
-                const response = await axios.get(
-                    `/api/v2/videos`, options
-                );
-                setVideos(response.data.data);
-                console.log(response.data.data);
-            } catch (error) {
-                console.log("error fetching articles", error);
+                const response = await fetch('https://tavusapi.com/v2/videos', options);
+                const data = await response.json();
+                setVideos(data.data);
+                console.log(data.data);
+            } catch (err) {
+                console.error("error fetching articles", err);
             }
         };
         fetchVideos();
