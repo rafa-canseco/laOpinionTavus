@@ -25,8 +25,8 @@ function App() {
       <Routes>
         <Route path="/" element={<AuthPage />} />
         <Route path="/registrar" element={<RegistrarPage />} />
-        {/* CMS */}
         <Route path="/cms" element={<CMS />} />
+        
         <Route element={<PrivateRoute />}>
           <Route path="/notes" element={<Notes />} />
           <Route path="/home" element={<Home />} />
