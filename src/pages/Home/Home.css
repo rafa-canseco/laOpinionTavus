@@ -13,7 +13,7 @@
     height: auto; 
     display: flex;
     justify-content: center;
-    align-items: stretch; /* Cambiado a stretch para que los hijos se expandan a lo largo del contenedor */
+    align-items: stretch; 
     flex-direction: row;
 }
 
@@ -23,8 +23,8 @@ aside {
     height: auto;
     display: flex;
     background-color: rgb(220, 220, 220);
-    justify-content: flex-start; /* Cambiado a flex-start para alinear elementos al inicio */
-    align-items: flex-start; /* Cambiado a flex-start para alinear elementos al inicio */
+    justify-content: flex-start; 
+    align-items: flex-start; 
     flex-direction: column;
     gap: 10px;
     padding-left: 50px;

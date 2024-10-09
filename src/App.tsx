@@ -8,6 +8,7 @@ import GENAI from './pages/Gen-AI/Gen-AI';
 import Videogen from './pages/Video-gen/Video-gen';
 import RegistrarPage from './pages/Registrar/Registrar';
 import PrivateRoute from './components/PrivateRoute/privateroute';
+import CMS from './pages/CMS/CMS';
 
 
 
@@ -22,9 +23,10 @@ function App() {
   return (
     <Router>
       <Routes>
-      
         <Route path="/" element={<AuthPage />} />
         <Route path="/registrar" element={<RegistrarPage />} />
+        {/* CMS */}
+        <Route path="/cms" element={<CMS />} />
         <Route element={<PrivateRoute />}>
           <Route path="/notes" element={<Notes />} />
           <Route path="/home" element={<Home />} />
